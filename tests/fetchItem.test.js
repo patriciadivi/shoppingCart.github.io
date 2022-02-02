@@ -4,5 +4,6 @@ const item = require('../mocks/item');
 
 describe('2 - Teste a função fecthItem', () => {
   // implemente seus testes aqui
-  fail('Teste vazio');
+  // fail('Teste vazio');
+  it('descrição', () => {});
 });
