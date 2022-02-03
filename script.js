@@ -16,6 +16,7 @@ function createCustomElement(element, className, innerText) {
 // function clickButtom() {
 //   return alert('Foi');
 // }
+// clickButtom();
 
 function createProductItemElement({ id: sku, title: name, thumbnail: image }) { // alias {
   const section = document.createElement('section');
@@ -32,10 +33,10 @@ function createProductItemElement({ id: sku, title: name, thumbnail: image }) { 
 }
 
 async function createShoppingCard() {
-  const fetchP = await fetchProducts();
+  const fetchP = await fetchProducts('computador');
   const getSection = document.querySelector('.items');
-  console.log(getSection);
-  fetchP.forEach((elementCreate) => {
+  // console.log(getSection);
+  fetchP.results.forEach((elementCreate) => {
     getSection.appendChild(createProductItemElement(elementCreate));
   });
 }
