@@ -7,6 +7,11 @@ function createProductImageElement(imageSource) {
   return img;
 }
 
+function cartItemClickListener(event) {
+  const element = event.target;
+  showCardOl.removeChild(element);
+}
+
 function createCartItemElement({ id: sku, title: name, price: salePrice }) {
   const li = document.createElement('li');
   li.className = 'cart__item';
@@ -24,7 +29,6 @@ async function showCard(resId) {
   // console.log(idItem);
   // console.log(idItem.id);
   // console.log(Object.assign([idItem.id, idItem.title, idItem.title]));
-  
 }
 
 function getSkuFromProductItem(item) {
@@ -74,10 +78,5 @@ async function createShoppingCard() {
   });
 }
 createShoppingCard();
-
-function cartItemClickListener(event) {
-  const element = event.target;
-  showCardOl.removeChild(element);
-}
 
 window.onload = () => { };
