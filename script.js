@@ -25,6 +25,9 @@ async function showCard(resId) {
   const { id, title, price } = idItem;
   // console.log(title);
   showCardOl.appendChild(createCartItemElement({ id, title, price }));
+  // saveCartItems(showCardOl.innerText);
+  // const saveIdLocalStorage = [];
+  // saveIdLocalStorage.push(saveCartItems({ id }));
 
   // console.log(idItem);
   // console.log(idItem.id);
@@ -79,4 +82,10 @@ async function createShoppingCard() {
 }
 createShoppingCard();
 
-window.onload = () => { };
+window.onload = () => {
+  const tela = JSON.parse(localStorage.getItem('chave'));
+  // localStorage.setItem('chave', JSON.stringify("<p class='test'>u</p>"));
+  // localStorage.setItem('chave', JSON.stringify("<p class='test'>u</p>"));
+  showCardOl.innerHTML = tela;
+  // console.log(typeof JSON.parse(localStorage.getItem('chave')));
+};

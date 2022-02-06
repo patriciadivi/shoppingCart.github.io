@@ -6,5 +6,7 @@ localStorageSimulator('setItem');
 describe('4 - Teste a função saveCartItems', () => {
   // implemente seus testes aqui
   // fail('Teste vazio');
-  it('descrição', () => {});
+  it('descrição', () => {
+    
+  });
 });
