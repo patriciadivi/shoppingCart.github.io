@@ -5,7 +5,7 @@
   const results = await response.json();
   return results;
 };
-// fetchProducts('computador').then(console.log);
+fetchProducts('computador').then(console.log);
 
 if (typeof module !== 'undefined') {
   module.exports = {
