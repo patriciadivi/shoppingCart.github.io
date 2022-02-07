@@ -28,7 +28,7 @@ async function showCard(resId) {
   // saveCartItems(showCardOl.innerText);
   // const saveIdLocalStorage = [];
   // saveIdLocalStorage.push(saveCartItems({ id }));
-
+  // saveCartItems({ id });
   // console.log(idItem);
   // console.log(idItem.id);
   // console.log(Object.assign([idItem.id, idItem.title, idItem.title]));
@@ -83,9 +83,10 @@ async function createShoppingCard() {
 createShoppingCard();
 
 window.onload = () => {
-  const tela = JSON.parse(localStorage.getItem('chave'));
-  // localStorage.setItem('chave', JSON.stringify("<p class='test'>u</p>"));
-  // localStorage.setItem('chave', JSON.stringify("<p class='test'>u</p>"));
-  showCardOl.innerHTML = tela;
-  // console.log(typeof JSON.parse(localStorage.getItem('chave')));
+  saveCartItems();
+  // const tela = JSON.parse(localStorage.getItem('chave'));
+  // // localStorage.setItem('chave', JSON.stringify("<p class='test'>u</p>"));
+  // // localStorage.setItem('chave', JSON.stringify("<p class='test'>u</p>"));
+  // showCardOl.innerHTML = tela;
+  // // console.log(typeof JSON.parse(localStorage.getItem('chave')));
 };
