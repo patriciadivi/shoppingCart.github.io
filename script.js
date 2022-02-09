@@ -13,10 +13,28 @@ function createProductImageElement(imageSource) {
   return img;
 }
 
+function totalPrice(totalValue) { // toString
+  const span = document.querySelector('.total-price');
+  const aside = document.querySelector('#totalPrice');
+  span.innerText = `${totalValue}`;
+  aside.appendChild(span);
+}
+
+function sumePrices() {
+  const arrLiItems = Array.from(showCardOl.children);
+  const valeuTotal = arrLiItems.reduce((acc, element) =>
+   acc + Number(element.innerText.split('$')[1]), 0);
+  console.log(valeuTotal);
+  const valueEnd = valeuTotal; // .toFixed(3);
+  const priceEnd = valueEnd.toString();
+  return totalPrice(priceEnd);
+}
+
 function cartItemClickListener(event) {
   const element = event.target;
   showCardOl.removeChild(element);
   saveLocalStorage();
+  sumePrices();
 }
 
 function createCartItemElement({ id: sku, title: name, price: salePrice }) {
@@ -33,6 +51,7 @@ async function showCard(resId) {
   const { id, title, price } = idItem;
   showCardOl.appendChild(createCartItemElement({ id, title, price }));
   saveLocalStorage();
+  sumePrices();
 }
 
 function getLiLocalStorage() {
@@ -45,6 +64,7 @@ function getSkuFromProductItem(item) {
 }
 
 function clickButtom(event) {
+  // console.log(showCardOl.childNodes);
   // REF = https://www.w3schools.com/jsref/prop_node_firstchild.asp
   const element = event.target;
   if (element.classList.contains('item__add')) {

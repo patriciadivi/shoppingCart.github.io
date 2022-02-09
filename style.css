@@ -140,10 +140,28 @@ body {
   overflow-y: scroll;
 }
 
+.cart .cart__item {
+  padding: 0.8rem;
+  margin: 0.8rem auto;
+  width: 90%;
+  list-style: none;
+  text-decoration: none;
+  border: 2px solid rgba(5, 52, 219);
+  border-radius: 0.2rem;
+  box-shadow: 8px 6px 5px rgb(0, 0, 0, 0.4);
+}
+
 .empty-cart {
   width: 170px;
   height: 35px;
   margin: 0 auto;
   border: 2px solid rgb(5, 52, 219);
   background-color: rgb(249, 249, 246);
+  box-shadow: 8px 6px 8px rgb(0, 0, 0, 0.4);
+}
+
+.cart .cart__item:hover , .empty-cart:hover {
+  color: aliceblue;
+  background-color: rgba(5, 52, 219);
+  transition-duration: 0.4s;
 }
