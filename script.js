@@ -1,5 +1,6 @@
 const showCardOl = document.querySelector('.cart__items');
 const buttomClear = document.querySelector('.empty-cart');
+const getSection = document.querySelector('.items');
 
 function saveLocalStorage() {
   const arrayLis = Array.from(showCardOl.children).map((element) => element.id);
@@ -16,7 +17,7 @@ function createProductImageElement(imageSource) {
 function totalPrice(totalValue) { // toString
   const span = document.querySelector('.total-price');
   const aside = document.querySelector('#totalPrice');
-  span.innerText = `${totalValue}`;
+  span.innerText = totalValue; // Passa a ser string pois, o innerText transforma o parametro.
   aside.appendChild(span);
 }
 
@@ -24,9 +25,8 @@ function sumePrices() {
   const arrLiItems = Array.from(showCardOl.children);
   const valeuTotal = arrLiItems.reduce((acc, element) =>
    acc + Number(element.innerText.split('$')[1]), 0);
-  console.log(valeuTotal);
-  const valueEnd = valeuTotal; // .toFixed(3);
-  const priceEnd = valueEnd.toString();
+  const valueEnd = valeuTotal; // .toFixed(2);
+  const priceEnd = valueEnd;// .toString();
   return totalPrice(priceEnd);
 }
 
@@ -64,7 +64,6 @@ function getSkuFromProductItem(item) {
 }
 
 function clickButtom(event) {
-  // console.log(showCardOl.childNodes);
   // REF = https://www.w3schools.com/jsref/prop_node_firstchild.asp
   const element = event.target;
   if (element.classList.contains('item__add')) {
@@ -90,24 +89,39 @@ buttomClear.addEventListener('click', () => {
 });
 
 function createProductItemElement({ id: sku, title: name, thumbnail: image }) { // alias {
-  const section = document.createElement('section');
-  section.className = 'item';
-  const newImageQuality = image.split('-');
-  const imageQuality = [...newImageQuality[0], '-', ...newImageQuality[1], '-J.jpg'].join('');
-  section.appendChild(createCustomElement('span', 'item__sku', sku));
-  section.appendChild(createCustomElement('span', 'item__title', name));
-  section.appendChild(createProductImageElement(imageQuality));
-  section.appendChild(createCustomElement('button', 'item__add', 'Adicionar ao carrinho!'));
+    const section = document.createElement('section');
+    section.className = 'item';
+    section.innerText = 'carregando';
+    const newImageQuality = image.split('-');
+    const imageQuality = [...newImageQuality[0], '-', ...newImageQuality[1], '-J.jpg'].join('');
+    section.innerText = '';
+    section.appendChild(createCustomElement('span', 'item__sku', sku));
+    section.appendChild(createCustomElement('span', 'item__title', name));
+    section.appendChild(createProductImageElement(imageQuality));
+    section.appendChild(createCustomElement('button', 'item__add', 'Adicionar ao carrinho!'));
 
   return section;
 }
 
+function test() {
+  const sectionTempo = document.createElement('section');
+    sectionTempo.className = 'loading';
+    sectionTempo.innerText = 'carregando';
+    
+    return sectionTempo;
+}
+
 async function createShoppingCard() {
   const fetchP = await fetchProducts('computador');
-  const getSection = document.querySelector('.items');
-  fetchP.results.forEach((elementCreate) => {
-    getSection.appendChild(createProductItemElement(elementCreate));
+  fetchP.results.forEach(() => {
+    getSection.appendChild(test());
   });
+  setTimeout(() => {
+    getSection.innerText = '';
+    fetchP.results.forEach((elementCreate) => {
+      getSection.appendChild(createProductItemElement(elementCreate));
+    });
+  }, 2000);
 }
 
 window.onload = () => {

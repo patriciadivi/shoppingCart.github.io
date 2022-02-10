@@ -91,7 +91,7 @@ body {
   margin: 40px 0;
 }
 
-.item {
+.item , .loading {
   display: flex;
   flex-direction: column;
   height: auto;
