@@ -144,20 +144,33 @@ body {
   padding: 0.8rem;
   margin: 0.8rem auto;
   width: 90%;
+  font-size: 1rem;
+  line-height: 1.2rem;
   list-style: none;
-  text-decoration: none;
-  border: 2px solid rgba(5, 52, 219);
   border-radius: 0.2rem;
-  box-shadow: 8px 6px 5px rgb(0, 0, 0, 0.4);
+  border: 2px solid rgba(5, 52, 219);
+  box-shadow: 8px 6px 5px rgba(0, 0, 0, 0.4);
+
 }
 
 .empty-cart {
   width: 170px;
-  height: 35px;
+  height: 45px;
   margin: 0 auto;
+  font-size: 12pt;
+  border-radius: 0.2rem;
+  color: rgb(29, 28, 28);
   border: 2px solid rgb(5, 52, 219);
   background-color: rgb(249, 249, 246);
   box-shadow: 8px 6px 8px rgb(0, 0, 0, 0.4);
+}
+
+.priceTotal {
+  padding: 1rem 0;
+  margin: 0 auto 1.2rem;
+  font-size: 16pt;
+  color: rgb(63, 63, 63);
+  border: 2px solid rgb(234, 234, 233);
 }
 
 .cart .cart__item:hover , .empty-cart:hover {

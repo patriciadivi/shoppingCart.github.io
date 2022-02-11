@@ -1,6 +1,7 @@
 const showCardOl = document.querySelector('.cart__items');
 const buttomClear = document.querySelector('.empty-cart');
 const getSection = document.querySelector('.items');
+// const buttom02 = document.querySelector('.item__add');
 
 function saveLocalStorage() {
   const arrayLis = Array.from(showCardOl.children).map((element) => element.id);
@@ -85,6 +86,7 @@ function createCustomElement(element, className, innerText) {
 
 buttomClear.addEventListener('click', () => {
   showCardOl.innerHTML = '';
+  sumePrices();
   localStorage.clear();
 });
 
